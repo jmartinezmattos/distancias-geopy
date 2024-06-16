@@ -1,11 +1,12 @@
 import geopy.distance
 import pandas as pd
+import os
 
 if __name__ == '__main__':
 
-    path_arcos = 'florida_arcos.xlsx'
+    path_arcos = '../sample_data/florida_arcos.xlsx'
 
-    coordenadas = pd.read_excel('diccionario_coordenadas.xlsx')
+    coordenadas = pd.read_excel('../sample_data/diccionario_coordenadas.xlsx')
     ciudades = pd.read_excel(path_arcos)
 
     ciudades['dist'] = 0.0
@@ -46,7 +47,7 @@ if __name__ == '__main__':
 
     print(ciudades.head())
 
-    ciudades.to_excel(f'{path_arcos.split('.')[0]}_con_distancia.xlsx', index=False)
+    ciudades.to_excel(f'{os.path.basename(path_arcos).split('.')[0]}_con_distancia.xlsx', index=False)
 
 
 

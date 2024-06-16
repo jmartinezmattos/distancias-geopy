@@ -1,7 +1,7 @@
 import pandas as pd
 import itertools
 import geopy.distance
-
+import os
 def generate_combinations(cities):
     combinations = list(itertools.combinations(cities, 2))
     df_combinations = pd.DataFrame(combinations, columns=['c1', 'c2'])
@@ -61,7 +61,7 @@ def calcular_distancias(coordenadas, ciudades):
 
 if __name__ == '__main__':
 
-    path_input = 'canelones_ciudades.csv'
+    path_input = '../sample_data/canelones_ciudades.csv'
 
     df = pd.read_csv(path_input)
 
@@ -71,4 +71,4 @@ if __name__ == '__main__':
 
     distancias = calcular_distancias(coordenadas, ciudades)
 
-    distancias.to_excel(f'{path_input.split('.')[0]}_distancias.xlsx', index=False)
+    distancias.to_excel(f'{os.path.basename(path_input).split('.')[0]}_distancias.xlsx', index=False)
