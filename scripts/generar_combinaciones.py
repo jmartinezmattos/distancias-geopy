@@ -67,7 +67,7 @@ if __name__ == '__main__':
 
     ciudades = obtain_combinations_from_df(df)
 
-    coordenadas = pd.read_excel('diccionario_coordenadas.xlsx')
+    coordenadas = pd.read_excel('../sample_data/diccionario_coordenadas.xlsx')
 
     distancias = calcular_distancias(coordenadas, ciudades)
 
